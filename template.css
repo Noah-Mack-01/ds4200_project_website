@@ -53,7 +53,7 @@ header gets hidden by the navbar*/
 /*Copied from test.css example*/
   #vis1 {
     margin: auto;
-    width: 50%;
+    width: 30%;
     background-color: rgb(255, 255, 255);
     padding: 10px;
     margin-bottom: 20px;
@@ -62,6 +62,17 @@ header gets hidden by the navbar*/
   }
 
   #vis2 {
+    margin: auto;
+    width: 70%;
+    background-color: rgb(255, 254, 254);
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  #vis3 {
     margin: auto;
     width: 70%;
     background-color: rgb(255, 254, 254);
