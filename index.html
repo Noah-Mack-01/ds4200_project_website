@@ -76,15 +76,12 @@
         <section id="motivation" class="container-fluid px-0" style="margin-top:50px"></section>
         <div>
             <h2  style="text-align:center; font-weight: bold;"> Motivation </h2> 
-            <p style="text-align: center; font-size:; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">We met with the Boston City Councilor for District 7, Tania Anderson, who was excited to talk
-                with us about the problems her district — which includes parts of Roxbury, Fenway, and the
-                South End — is facing.
-                Specifically, the Councilor mentioned drop-out rates, foster care rates, police presence, food
-                deserts, heat islands and homeownership disparities between the black and brown residents of
-                Roxbury and residents of other neighborhoods.
-                Based on the data we received from the Councilor’s office, we wanted to explore the
-                relationship between crime rates, types of crime, and funding in the different neighborhoods.
-                </p>      
+            <p style="text-align: center; font-size:; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">
+                We met with the Boston City We met with the Boston City Councilor for District 7, Tania Anderson, who was excited to talk with us about the problems her district — which includes parts of Roxbury, Fenway, and the South End — is facing. Specifically, the Councilor mentioned drop-out rates, foster care rates, police presence, food deserts, heat islands and homeownership disparities between the black and brown residents of Roxbury and residents of other neighborhoods. 
+
+                Based on the data we received from the Councilor’s office and her questions about the differences in Roxbury’s funding compared to other neighborhoods in Boston, we wanted to explore the relationship between crime rates, types of crime, and funding in the different neighborhoods. After exploring the web for some databases that could help our exploration of Roxbury’s makeup and funding, we settled upon the crime database.
+                
+             </p>      
         </div>    
     </section>
 
@@ -93,20 +90,16 @@
     <section id="data" class="container-fluid px-0" style="margin-top:50px"></section>
         <div>
             <h2  style="text-align:center; font-weight: bold;"> Data </h2> 
-            <p style="text-align: center; font-size:; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">We have a few sources for data. One came from Councilor Anderson, who gave us Boston’s
-                2023 city plan for projects that are in progress, planned for the future, or already completed.
-                This plan includes the department of government that is completing the project, the project’s
-                name, the aim of the project, the status of it, what neighborhood it is in, a secondary
-                neighborhood (if it spans multiple), the city district, and then many different categories that
-                include funding details. Department, project name, aim, neighborhood, and district are all
-                categorical variables. The project status is ordinal, and the funding details are all numerical
-                variables.
-                The other data sources come from the city’s public database, and it is focused on calls placed to
-                police over the past eight years. The categories are incident number, offense code, the group of
-                offense code, the description of the offense, the police district it happens in, the reporting area, if
-                there were shots fired, when it happens, and what the location is (street, latitude/longitude).
-                Incident number, offense code/description, district, reporting area, and the location are all
-                categorical, while the date is ordinal, and the shooting numbers are numerical.</p>      
+            <p style="text-align: center; font-size:; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">
+                We have a few sources for data. One came from Councilor Anderson, who gave us Boston’s 2023 city plan for projects that are in progress, planned for the future, or already completed. This plan includes the department of government that is completing the project, the project’s name, the aim of the project, the status of it, what neighborhood it is in, a secondary neighborhood (if it spans multiple), the city district, and then many different categories that include funding details. Department, project name, aim, neighborhood, and district are all categorical variables. The project status is ordinal, and the funding details are all numerical variables.
+
+                The other data sources come from the city’s public database, and it is focused on calls placed to police over the past eight years. The categories are incident number, offense code, the group of offense code, the description of the offense, the police district it happens in, the reporting area, if there were shots fired, when it happens, and what the location is (street, latitude/longitude). Incident number, offense code/description, district, reporting area, and the location are all categorical, while the date is ordinal, and the shooting numbers are numerical.
+
+                There was some extensive cleaning that had to go into the police reports data, which included taking nine offenses and using those for our visualization, as there were simply too many codes to show all of them. That was done in Excel, and we pulled together seven datasets from 2015-2021 to get those numbers. We had to calculate year-to-year change by percentage as well in that dataset. 
+
+                For the Boston choropleth map, there were a few changes we had to make to our city plan in order to make it work with the neighborhood shapefile we found. First, if we wanted to brush and link between the two, we needed to merge the dataframes on neighborhood, but that proved to be tricky as some neighborhoods were named differently on the map and in the city plan. We switched some of the names of the neighborhoods in the city plan to better correlate with the map and get a good product from it.
+
+            </p>      
         </div>
     </section>
 
@@ -124,14 +117,14 @@
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>Of Boston Neighborhoods, which are privy to high funding?</td>
+                    <td>Of Boston neighborhoods, which are privy to high-level funding?</td>
                     <td>Overview</td>
                     <td>Browse</td>
                     <td>Present</td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>Correlate project funding and the different statuses of projects going on</td>
+                    <td>What is the correlation between types of crime calls and neighborhood?</td>
                     <td>Overview</td>
                     <td>Locate</td>
                     <td>Present</td>
@@ -141,20 +134,6 @@
                     <td>What is the correlation between types of crime calls and neighborhood?</td>
                     <td>Overview</td>
                     <td>Locate</td>
-                    <td>Present</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>What are the average police calls across neighborhoods in District 7</td>
-                    <td>Overview</td>
-                    <td>Browse</td>
-                    <td>Present</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>What's the difference in types of projects going on and their funding in District 7 neighborhoods?</td>
-                    <td>Overview</td>
-                    <td>Lookup</td>
                     <td>Present</td>
                 </tr>
             </table>
@@ -168,26 +147,17 @@
         <div>
             <h2  style="text-align:center; font-weight: bold;"> Data Analysis </h2> 
             <p style="text-align: center; font-size:; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">
-                In our data, there were a few key findings that surfaced from our initial data inquiry.
-                When we opened the first dataset with the city plan, we were immediately drawn to the number
-                of projects and their funding based on the district and neighborhood. This was one of the key
-                points that Councilor Anderson stressed she wanted to see, so that was where we started. What
-                we found was that, among neighborhoods in her district, the South End took up a large portion
-                of the budget from District 7.<br>
-                When we looked at the neighborhoods as a whole and not just the parts in the district, we found
-                that Fenway had an even larger budget than the South End.
-                Then we looked at the city plan’s section on project progress and saw that a majority of the
-                projects in Roxbury are actually under construction or in design. What does that mean? To be
-                honest, we’re not sure. We don’t know if production is being delayed or the time frame that
-                these projects will be finished by. But what we can see is that the neighborhood has five projects
-                that are brand new and three that haven’t been scheduled yet. These, along with the eight that
-                are in design and one that is still being studied for, make up more than half of the 32 projects
-                that we had in our spreadsheet for Roxbury.<br>
-                After that, we moved to the crime data. What we discovered is that the shoplifting offenses
-                called to police in Fenway are much higher than any other offense in any district. When focusing
-                closely on Roxbury, we saw that there’s a high number of larceny - theft from motor vehicle
-                charges as well as aggravated assault calls made to police.
-                </p>      
+                There were a few key findings that surfaced from our initial data inquiry. 
+
+                When we opened the first dataset with the city plan, we were immediately drawn to the number of projects and their funding based on the district and neighborhood. This was one of the key points that Councilor Anderson stressed she wanted to see, so that was where we started. What we found was that, among neighborhoods in her district, the South End took up a large portion of the budget from District 7. 
+
+                When we looked at the neighborhoods as a whole and not just the parts in the district, we found that Fenway had an even larger budget than the South End.
+
+                Then we looked at the city plan’s section on project progress and saw that a majority of the projects in Roxbury are actually under construction or in design. What does that mean? To be honest, we’re not sure. We don’t know if production is being delayed or the time frame that these projects will be finished by. But what we can see is that the neighborhood has five projects that are brand new and three that haven’t been scheduled yet. These, along with the eight that are in design and one that is still being studied for, make up more than half of the 32 projects that we had in our spreadsheet for Roxbury.
+
+                After that, we moved to the crime data. What we discovered is that the shoplifting offenses called to police in Fenway are much higher than any other offense in any district. When focusing closely on Roxbury, we saw that there’s a high number of larceny - theft from motor vehicle charges as well as aggravated assault calls made to police.
+
+            </p>      
         </div>
     </section>
 
@@ -196,9 +166,14 @@
     <section id="design" class="container-fluid px-0" style="margin-top:50px"></section>
         <div>
             <h2  style="text-align:center; font-weight: bold;"> Design Process </h2> 
-            <p style="text-align: center; font-size:; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">With the bar chart, we originally had an idea with brushing and linking that included a line chart,
-                but instead we wanted to simplify and show the change over time on one chart. We chose to
-                encode color to show the change over time in different calls to the police department in Roxbury.</p>      
+            <p style="text-align: center; font-size:; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">
+                TREEMAP DESIGN PROCESS HERE
+
+                We wanted to compare the total funding in 2021 across neighborhoods in Boston without limiting comparisons to just District 7. To do so we employed a choropleth map that enables users to see where each neighborhood is located relative to other neighborhoods in Boston. We applied details-on-demand interactive feature that allows the user to select one or more neighborhoods and see their total funding compared to other neighborhoods in the corresponding bar chart. This design was to emphasize the drastic difference in funding of different neighborhoods, and also provides interesting insight into the rough area/size of each neighborhood relative to its funding. After receiving feedback, we re-sized each chart so that they can appear next to each other which is easier for user viewing. Additionally, we changed the coloring so that the color of the neighborhood corresponds to the total funding it receives.
+
+                For the bar chart and grouped line chart, we wanted to look at the change in crime rates over time and how they differed from year to year. The best way to do this is to use a line chart, so we gathered data from 2015-2021 and plotted it for the top nine different offenses. If we used the entire dataset with each offense, we’d run into the problem of having far too many lines on the chart, so we cut it down. Then after plotting the line chart, we used a grouped bar chart to show the year-to-year percentage change based on a selection interval on the line chart. After some feedback, we tweaked a few things such as the size of the graphs and setting hard limits for the y-axis on the waterfall chart before finishing up the visualization
+            
+            </p>      
         </div>
     </section>
 
@@ -211,9 +186,10 @@
             
          <!-- Add a header for the first vis--> 
     <p style="font-size:20px; font-weight: bold; text-align: center;">Illegal Activity Reported in Roxbury, Fenway & Downtown</p>
-    <p style="font-size:20px; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">We wanted to use a treemap to focus on Roxbury crime. Color was
-        our encoding choice in this one, and we wanted to use the area as a channel to show the
-        difference in crime types in the area.</p>
+    <p style="font-size:20px; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">
+        This treemap to illustrates the most prolific offense groups in Roxbury, Fenway and Downtown. Color was
+        our encoding of choice, and we wanted to use the area as a channel to show the difference in crime types in the area.
+    </p>
      
     <!-- Div for first visualization with an ID vis1-->  
     <div id="vis1-container">
@@ -223,14 +199,17 @@
     </div>
      <!-- Add a header for the second vis--> 
      <p style="font-size:20px; font-weight: bold; text-align: center;">Public Funding by Neighborhood in Boston</p>
-     <p style="font-size:20px; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">We thought that looking at a map would actually be a great
-        way to present information about the neighborhood differences. Boston is such a recognizable
-        city, so showing the outline and making it easily understandable would be best for the audience.</p>
+     <p style="font-size:20px; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">
+        The choropleth map presents information about funding based on neighborhood differences. Boston is such a recognizable
+        city, so showing the outline would make it easy for users to identify neighborhoods and the details-on-demand feature allows users
+        to easily compare the differences in fundings.
+    </p>
     <!-- Div for second visualization with an ID vis2-->
         <div id="vis2" class="center"></div>
 
         <p style="font-size:20px; font-weight: bold; text-align: center;">Calls to Police in Roxbury by Crime Over Time</p>
-        <p style="font-size:20px; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">We originally had an idea with brushing and linking that included a line chart, but instead we wanted to simplify and show the change over time on one chart. We chose to
+        <p style="font-size:20px; margin-left:auto; margin-right:auto; width:50%; text-align: justify;">
+            The line chart connected to the waterfall map shows the change in percentage of different offense groups from 2015 to 2021. We chose to
             encode color to show the change over time in different calls to the police department in Roxbury.</p>
     <div id="vis3" class="center">
     </div>
