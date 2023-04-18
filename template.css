@@ -49,6 +49,10 @@ header gets hidden by the navbar*/
   }
 
 
+  #vis1-container {
+    display: flex;
+    overflow-x: scroll;
+  }
 
 /*Copied from test.css example*/
   #vis1 {
@@ -82,4 +86,7 @@ header gets hidden by the navbar*/
     justify-content: center;
   }
 
- 
+ .treemap {
+  padding: 10px;
+  height: fit-content
+ }
