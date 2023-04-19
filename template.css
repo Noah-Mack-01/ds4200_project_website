@@ -51,7 +51,7 @@ header gets hidden by the navbar*/
 
   #vis1-container {
     display: flex;
-    overflow-x: scroll;
+    justify-content: center;
   }
 
 /*Copied from test.css example*/
