@@ -1,1 +1,2 @@
 Open the index.html file in your default browser to view the visualizations and write-up.
+All other files aside from index.html are cosmetic sources for the website to be run locally on your computer.
